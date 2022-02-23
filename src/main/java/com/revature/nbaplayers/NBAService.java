@@ -16,8 +16,16 @@ public class NBAService extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        for (String player : nbaRepository.getPlayers()){
-            resp.getWriter().println(player);
+        String userInput;
+        userInput = req.getParameter("searchPlayer");
+
+        if (userInput != null){
+            String result = nbaRepository.getPlayer(userInput);
+            resp.getWriter().println(result);
+        } else {
+            for (String player : nbaRepository.getPlayers()){
+                resp.getWriter().println(player);
+            }
         }
     }
 }

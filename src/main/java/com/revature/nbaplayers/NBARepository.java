@@ -26,4 +26,15 @@ public class NBARepository {
     public List<String> getPlayers() {
         return players;
     }
+
+    public String getPlayer(String name){
+        String result = new String();
+        for (String player : this.players){
+            if (player.contains(name)){
+                result = player;
+                System.out.println(result);
+            }
+        }
+        return result;
+    }
 }
