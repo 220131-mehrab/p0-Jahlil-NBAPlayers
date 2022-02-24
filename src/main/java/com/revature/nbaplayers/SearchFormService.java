@@ -15,9 +15,10 @@ public class SearchFormService extends HttpServlet {
                 "    <title>NBA Current Players Records</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
-                "<form action='/' method='get'> \n" +
+                "<form action='NBA-Players-Roster' method='get'> \n" +
                 "    <input type='name' name='searchName'/>\n" +
                 "    <input type='submit' value='Search'/>\n" +
+                "    <a href='NBA-Players-Roster'> See Players List</a>\n" +
                 "</form>\n" +
                 "</body>\n" +
                 "</Html>";
