@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-public class SearchFormService extends HttpServlet {
+public class SearchPlayerFormService extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String HtmlForm = "<Html>\n" +
@@ -15,10 +15,11 @@ public class SearchFormService extends HttpServlet {
                 "    <title>NBA Current Players Records</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
-                "<form action='NBA-Players-Roster' method='get'> \n" +
-                "    <input type='name' name='searchName'/>\n" +
+                "<h1>NBA Custom Rosters</h1>\n" +
+                "<form action='Players-Roster' method='get'> \n" +
+                "    <input type='name' name='searchPlayer'/>\n" +
                 "    <input type='submit' value='Search'/>\n" +
-                "    <a href='NBA-Players-Roster'> See Players List</a>\n" +
+                "    <a href='Players-Roster'> See Players List</a>\n" +
                 "</form>\n" +
                 "</body>\n" +
                 "</Html>";

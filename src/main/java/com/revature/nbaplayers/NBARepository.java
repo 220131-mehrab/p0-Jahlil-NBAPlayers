@@ -32,7 +32,16 @@ public class NBARepository {
         for (String player : this.players){
             if (player.contains(name)){
                 result = player;
-                System.out.println(result);
+            }
+        }
+        return result;
+    }
+
+    public List<String> getTeam(String teamName){
+        List<String> result = new ArrayList<>();
+        for (String player : this.players){
+            if (player.contains(teamName)){
+                result.add(player);
             }
         }
         return result;

@@ -4,19 +4,20 @@ import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
 
 public class NBAServer {
-    private Tomcat server;
-    SearchFormService sfService = new SearchFormService();
-    String webAppName = "NBA-Players-Roster";
+    String webAppName = "/Players-Roster";
 
     public NBAServer(NBAService nbaService) {
-        this.server = new Tomcat();
-        this.server.setBaseDir(System.getProperty("java.io.tmpdir"));
-        this.server.getConnector();
-        this.server.addContext(webAppName,null);
-        this.server.addServlet(webAppName,"nbaServlet",nbaService).addMapping("/");
-        this.server.addServlet(webAppName, "searchFormServlet", sfService).addMapping("/search");
+        Tomcat server = new Tomcat();
+        server.setBaseDir(System.getProperty("java.io.tmpdir"));
+        server.setPort(0);
+        server.getConnector();
+        server.addContext(webAppName,null);
+        server.addServlet(webAppName,"nbaServlet",nbaService).addMapping("/players");
+        server.addServlet(webAppName, "searchPlayerFormServlet", new SearchPlayerFormService()).addMapping("/searchPlayer");
+        server.addServlet(webAppName, "searchTeamFormServlet", new SearchTeamFormService()).addMapping("/searchTeam");
         try {
-            this.server.start();
+            server.start();
+            System.out.println("Server running on http://localhost:" + server.getConnector().getLocalPort() + webAppName);
         } catch (LifecycleException e) {
             e.printStackTrace();
         }
