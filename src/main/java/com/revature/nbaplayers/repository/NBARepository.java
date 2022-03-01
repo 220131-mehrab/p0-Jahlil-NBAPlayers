@@ -1,4 +1,4 @@
-package com.revature.nbaplayers;
+package com.revature.nbaplayers.repository;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -41,6 +41,16 @@ public class NBARepository {
         List<String> result = new ArrayList<>();
         for (String player : this.players){
             if (player.contains(teamName)){
+                result.add(player);
+            }
+        }
+        return result;
+    }
+
+    public List<String> getPositions(String positionName){
+        List<String> result = new ArrayList<>();
+        for (String player : this.players){
+            if (player.contains(positionName)){
                 result.add(player);
             }
         }

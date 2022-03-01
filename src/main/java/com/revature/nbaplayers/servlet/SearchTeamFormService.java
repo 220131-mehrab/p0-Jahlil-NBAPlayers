@@ -1,4 +1,4 @@
-package com.revature.nbaplayers;
+package com.revature.nbaplayers.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -12,8 +12,8 @@ import java.io.InputStream;
 public class SearchTeamFormService extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String filename = req.getPathInfo().replaceFirst("/", "");
-        InputStream file = getClass().getClassLoader().getResourceAsStream(filename);
+        //String filename = req.getPathInfo().replaceFirst("/", "");
+        InputStream file = getClass().getClassLoader().getResourceAsStream("searchTeamForm.html");
         IOUtils.copy(file, resp.getOutputStream());
     }
 }
